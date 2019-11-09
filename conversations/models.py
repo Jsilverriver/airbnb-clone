@@ -23,3 +23,6 @@ class Message(core_models.TimeStampedModel):
     def __str(self):
         return f"{self.user} says: {self.message}"
 
+    def __str(self):
+        return "test"
+
