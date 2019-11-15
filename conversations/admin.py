@@ -7,7 +7,7 @@ class ConversationAdmin(admin.ModelAdmin):
 
     """ Conversation Admin Definition """
 
-    list_display = ("__str__", "count_message", "count_participants")
+    list_display = ("__str__", "count_message", "count_participant")
 
 
 @admin.register(models.Message)
