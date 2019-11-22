@@ -7,11 +7,10 @@ class Dog:
 
 
 class Puppy(Dog):
-    def pee(self):
-        print("Puppy class f pee")
-        super().pee()
+    def __init__(self):
+        print("Puppy class f init")
+        super().__init__()
 
 
 p = Puppy()
-p.pee()
 
