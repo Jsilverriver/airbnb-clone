@@ -1,21 +1,15 @@
 from django.core.management.base import BaseCommand
-from rooms import models as room_models
+from rooms.models import Amenity
 
 
 class Command(BaseCommand):
-    help = "This command tells me that creates amenities"
 
-    """def add_arguments(self, parser):
-        parser.add_argument(
-            "--times", help="How many times do you want me to tell you that I love you."
-        )
-        """
+    help = "This command creates many users"
+
+    def add_arguments(self, parser):
+        parser.add_argument("--number", help="How many users do you want to create")
 
     def handle(self, *args, **options):
-        """times = options.get("times")
-        for t in range(0, int(times)):
-            self.stdout.write(self.style.WARNING("I love you"))
-            """
         amenities = [
             "Air conditioning",
             "Alarm Clock",
@@ -61,5 +55,5 @@ class Command(BaseCommand):
             "TV",
         ]
         for a in amenities:
-            room_models.Amenity.objects.create(name=a)
-        self.stdout.write(self.style.SUCCESS("Amenities Created!"))
+            Amenity.objects.create(name=a)
+        self.stdout.write(self.style.SUCCESS("Amenities created!"))

@@ -25,10 +25,16 @@ class Command(BaseCommand):
             room_models.Room,
             number,
             {
+                "name": lambda x: seeder.faker.address(),
                 "host": lambda x: random.choice(all_users),
                 # lambda는 익명의 함수. 자바스크립트의 (x) => asdfasdf 이런...거라고 하는데 뭔말? #random하게 host를 선택하게 해줌.
                 "room_type": lambda x: random.choice(room_types),
                 # Field rooms.Room.room_type cannot be null
+                "guests": lambda x: random.randint(1, 20),
+                "price": lambda x: random.randint(1, 300),
+                "beds": lambda x: random.randint(1, 5),
+                "bedrooms": lambda x: random.randint(1, 5),
+                "baths": lambda x: random.randint(1, 5),
             },
         )
         seeder.execute()

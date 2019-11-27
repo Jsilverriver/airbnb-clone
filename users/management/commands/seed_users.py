@@ -9,7 +9,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "--number", default=1, type=int, help="How many times do you want to create"
+            "--number", default=2, type=int, help="How many times do you want to create"
         )
 
     def handle(self, *args, **options):
@@ -18,3 +18,4 @@ class Command(BaseCommand):
         seeder.add_entity(User, number, {"is_staff": False, "is_superuser": False})
         seeder.execute()
         self.stdout.write(self.style.SUCCESS(f"{number} Users Created!"))
+
